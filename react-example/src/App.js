@@ -8,14 +8,11 @@ function App() {
   useEffect(() => {
     const incrementarTiempo = () => {
       setTiempo((prevTiempo) => prevTiempo + 1);
-      setTimeout(incrementarTiempo, 1000);
     };
 
-    incrementarTiempo();
+    const intervalo = setInterval(incrementarTiempo, 1000);
 
-    return () => {
-      setTiempo(0);
-    };
+    return () => clearInterval(intervalo);
   }, []);
 
   return (
